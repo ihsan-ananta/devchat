@@ -1,5 +1,5 @@
-import React from 'react';
-import firebase from '../../firebase';
+import React from "react";
+import firebase from "../../firebase";
 import {
   Grid,
   Form,
@@ -8,13 +8,13 @@ import {
   Header,
   Message,
   Icon
-} from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+} from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 class Login extends React.Component {
   state = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     errors: [],
     loading: false
   };
@@ -50,51 +50,52 @@ class Login extends React.Component {
 
   handleInputError = (errors, inputName) => {
     return errors.some(error => error.message.toLowerCase().includes(inputName))
-      ? 'error'
-      : '';
+      ? "error"
+      : "";
   };
 
   render() {
     const { email, password, errors, loading } = this.state;
 
     return (
-      <Grid textAlign='center' verticalAlign='middle' className='app'>
+      <Grid textAlign="center" verticalAlign="middle" className="app">
         <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as='h1' icon color='violet' textAlign='center'>
-            <Icon name='code branch' color='violet' />
+          <Header as="h1" icon color="violet" textAlign="center">
+            <Icon name="code branch" color="violet" />
             Login to DevChat
           </Header>
-          <Form onSubmit={this.handleSubmit} size='large'>
+          <Form onSubmit={this.handleSubmit} size="large">
             <Segment stacked>
               <Form.Input
                 fluid
-                name='email'
-                icon='mail'
-                iconPosition='left'
-                placeholder='Email Address'
+                name="email"
+                icon="mail"
+                iconPosition="left"
+                placeholder="Email Address"
                 onChange={this.handleChange}
                 value={email}
-                className={this.handleInputError(errors, 'email')}
-                type='email'
+                className={this.handleInputError(errors, "email")}
+                type="email"
               />
+
               <Form.Input
                 fluid
-                name='password'
-                icon='lock'
-                iconPosition='left'
-                placeholder='Password'
+                name="password"
+                icon="lock"
+                iconPosition="left"
+                placeholder="Password"
                 onChange={this.handleChange}
                 value={password}
-                className={this.handleInputError(errors, 'password')}
-                type='password'
+                className={this.handleInputError(errors, "password")}
+                type="password"
               />
 
               <Button
                 disabled={loading}
-                className={loading ? 'loading' : ''}
-                color='violet'
+                className={loading ? "loading" : ""}
+                color="violet"
                 fluid
-                size='large'
+                size="large"
               >
                 Submit
               </Button>
@@ -107,7 +108,7 @@ class Login extends React.Component {
             </Message>
           )}
           <Message>
-            Don't have an account? <Link to='/register'>Register</Link>
+            Don't have an account? <Link to="/register">Register</Link>
           </Message>
         </Grid.Column>
       </Grid>
